@@ -1,2 +1,2 @@
 # UnSHACLed-server
-The server-side logic for hosting UnSHACLed.
+Server-side logic for hosting UnSHACLed.
