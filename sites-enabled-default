@@ -3,7 +3,7 @@ server {
 	listen [::]:80 default_server ipv6only=on;
 
 	root /home/UnSHACLed-server/UnSHACLed;
-	
+
 	# Make site accessible from http://localhost/
 	server_name localhost;
 
@@ -11,7 +11,11 @@ server {
 		try_files $uri $uri.html =404;
 	}
 
+	location /version {
+		try_files $uri =404;
+	}
+
 	location /dist/unshacled.min.js {
-		try_files $uri =404;	
+		try_files $uri =404;
 	}
 }
