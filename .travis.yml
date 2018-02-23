@@ -13,9 +13,9 @@ addons:
       - nginx
 
 install:
-  # Build UnSHACLed.
-  - pushd UnSHACLed; npm install && gulp build; popd
-  # Patch the server config and install it.
+  # Lint, build and test UnSHACLed.
+  - pushd UnSHACLed; npm install && gulp; popd
+  # Patch the server configuration and install it.
   - ./patch-server.sh $(pwd)/UnSHACLed
   - sudo ./install-server.sh
 
