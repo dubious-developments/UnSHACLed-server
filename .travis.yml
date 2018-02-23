@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - stable
+
+# Use a simple Trusty Tahr server to deploy.
+os: linux
+dist: trusty
+sudo: required
+
+addons:
+  apt:
+    packages:
+      - nginx
+
+install:
+  # Build UnSHACLed.
+  - pushd UnSHACLed; npm install && gulp build; popd
+  # Patch the server config and install it.
+  - ./patch-server.sh $(realpath .)/UnSHACLed
+  - sudo ./install-server.sh
+
+script:
+  # Launch the server.
+  - sudo ./start-server.sh
+  # Try to download a bunch of files.
+  - wget http://localhost/index.html
+  - wget http://localhost/dist/unshacled.min.js
+  # Shut the server down.
+  - sudo ./stop-server.sh
