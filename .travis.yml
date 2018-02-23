@@ -16,7 +16,7 @@ install:
   # Lint, build and test UnSHACLed.
   - pushd UnSHACLed; npm install && xvfb-run gulp; popd
   # Patch the server configuration and install it.
-  - ./patch-server.sh $(pwd)/UnSHACLed
+  - ./patch-server.sh $(pwd)/UnSHACLed 8080
   - sudo ./install-server.sh
 
 script:
@@ -26,5 +26,5 @@ script:
   - ls -l /etc/nginx/sites-enabled
   - cat /etc/nginx/sites-available/default
   # Try to download a bunch of files.
-  - wget -O - http://localhost/index.html
-  - wget http://localhost/dist/unshacled.min.js
+  - wget -O - http://localhost:8080/index.html
+  - wget http://localhost:8080/dist/unshacled.min.js
