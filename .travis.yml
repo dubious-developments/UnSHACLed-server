@@ -11,13 +11,12 @@ addons:
   apt:
     packages:
       - nginx
-      - realpath
 
 install:
   # Build UnSHACLed.
   - pushd UnSHACLed; npm install && gulp build; popd
   # Patch the server config and install it.
-  - ./patch-server.sh $(realpath .)/UnSHACLed
+  - ./patch-server.sh $(pwd)/UnSHACLed
   - sudo ./install-server.sh
 
 script:
