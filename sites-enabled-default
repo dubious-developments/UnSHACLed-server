@@ -2,7 +2,7 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server ipv6only=on;
 
-	root /home/UnSHACLed-waterfall/UnSHACLed-server/UnSHACLed;
+	root UNSHACLED_PATH;
 
 	# Make site accessible from http://localhost/
 	server_name localhost;
