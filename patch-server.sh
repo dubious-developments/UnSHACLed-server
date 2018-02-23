@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sed 's:UNSHACLED_PATH:'$1':g' sites-enabled-default > sites-enabled-default.patched
+current_dir_path=$(dirname $0)
+
+sed 's:UNSHACLED_PATH:'$1':g' $current_dir_path/sites-enabled-default \
+    > $current_dir_path/sites-enabled-default.patched
