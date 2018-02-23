@@ -21,9 +21,9 @@ install:
 
 script:
   # Stop the server if it's already been launched.
-  - sudo ./stop-server.sh
+  - sudo service nginx stop
   # Launch the server.
-  - sudo ./start-server.sh
+  - sudo service nginx start
   - ls -l /etc/nginx/sites-available
   - ls -l /etc/nginx/sites-enabled
   - cat /etc/nginx/sites-available/default
@@ -31,4 +31,4 @@ script:
   - wget -O - http://localhost/index.html
   - wget http://localhost/dist/unshacled.min.js
   # Shut the server down.
-  - sudo ./stop-server.sh
+  - sudo service nginx stop
