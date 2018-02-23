@@ -22,6 +22,8 @@ install:
 script:
   # Launch the server.
   - sudo ./start-server.sh
+  - ls -l /etc/nginx/sites-available
+  - ls -l /etc/nginx/sites-enabled
   # Try to download a bunch of files.
   - wget -O - http://localhost/index.html
   - wget http://localhost/dist/unshacled.min.js
