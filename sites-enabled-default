@@ -2,20 +2,16 @@ server {
 	listen TCP_PORT default_server;
 	listen [::]:TCP_PORT default_server ipv6only=on;
 
-	root UNSHACLED_PATH;
+	root UNSHACLED_PATH/build;
 
 	# Make site accessible from http://localhost/
 	server_name localhost;
 
-	location /index {
-		try_files $uri $uri.html =404;
+	location = / {
+		index index.html;
 	}
 
-	location /version {
-		try_files $uri =404;
-	}
-
-	location /dist/unshacled.min.js {
+	location / {
 		try_files $uri =404;
 	}
 }
