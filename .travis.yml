@@ -17,7 +17,7 @@ install:
   - pushd UnSHACLed; npm install && xvfb-run gulp; popd
   # Patch the server configuration and install it.
   - ./patch-server.sh $(pwd)/UnSHACLed 8080
-  - sudo ./install-server.sh
+  - sudo ./install-server.sh default
 
 script:
   # (Re)load nginx.

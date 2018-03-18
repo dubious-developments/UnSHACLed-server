@@ -11,6 +11,10 @@ server {
 		index index.html;
 	}
 
+	location /coverage {
+		alias "UNSHACLED_PATH/coverage/Firefox 58.0.0 (Ubuntu 0.0.0)";
+	}
+
 	location / {
 		try_files $uri =404;
 	}

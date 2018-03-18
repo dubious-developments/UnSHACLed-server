@@ -7,7 +7,7 @@ Server-side logic for hosting UnSHACLed.
 How to upgrade the server:
 
   1. Patch the server using `./patch-server.sh path-to-UnSHACLed-client tcp-port`
-  2. Install the server using `sudo ./install-server.sh`
+  2. Install the server using `sudo ./install-server.sh default`
   3. Reload the server using `sudo ./reload-server.sh`
 
 How to manage the server:
